@@ -1,0 +1,121 @@
+2020-01-06 06:23:00,166 ERROR: Exception on /user/susan [GET] [in /home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/roan/Documents/Scripts/microblog/app/routes.py", line 81, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/roan/Documents/Scripts/microblog/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/roan/Documents/Scripts/microblog/app/templates/user.html", line 14, in root
+    </td>
+  File "/home/roan/Documents/Scripts/microblog/app/templates/base.html", line 55, in root
+  File "/home/roan/Documents/Scripts/microblog/app/templates/user.html", line 51, in block_content
+  File "/home/roan/Documents/Scripts/microblog/app/templates/_post.html", line 15, in root
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'system_id' is undefined
+2020-01-06 06:23:38,978 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 06:23:59,557 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 06:24:00,620 ERROR: Exception on /index [GET] [in /home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/roan/Documents/Scripts/microblog/app/routes.py", line 32, in index
+    return render_template('index.html', title='Home', systems=systems)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/roan/Documents/Scripts/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/roan/Documents/Scripts/microblog/app/templates/index.html", line 14, in root
+  File "/home/roan/Documents/Scripts/microblog/app/templates/base.html", line 55, in root
+  File "/home/roan/Documents/Scripts/microblog/app/templates/index.html", line 30, in block_content
+  File "/home/roan/Documents/Scripts/microblog/app/templates/_systems.html", line 14, in root
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'system_id' is undefined
+2020-01-06 06:24:26,136 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 07:16:38,171 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-07 07:59:48,823 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-07 08:01:11,778 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-07 08:02:23,306 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-07 08:03:12,058 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-07 08:09:40,965 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-07 08:11:07,445 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-07 08:11:33,115 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-07 08:16:50,163 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 06:36:12,930 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 06:39:45,777 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 06:45:43,077 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 06:50:06,032 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 06:50:18,774 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 06:50:22,390 ERROR: Exception on /index [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 26, in index
+    {system.id: system, system.system_id: 'Test post #1'}
+AttributeError: 'list' object has no attribute 'id'
+2020-01-08 06:51:46,034 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 06:52:19,360 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]

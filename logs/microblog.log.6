@@ -1,0 +1,104 @@
+2019-12-28 05:35:47,205 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2019-12-28 05:57:29,311 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2019-12-28 05:57:39,525 ERROR: Exception on /monitoring [GET] [in /home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/roan/Documents/Scripts/microblog/app/routes.py", line 98, in monitoring
+    fig = Figure()
+NameError: name 'Figure' is not defined
+2019-12-28 05:58:40,259 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2019-12-28 05:58:44,322 ERROR: Exception on /monitoring [GET] [in /home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/roan/Documents/Scripts/microblog/app/routes.py", line 110, in monitoring
+    pngImage = io.BytesIO()
+NameError: name 'io' is not defined
+2019-12-28 05:59:07,081 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2019-12-28 05:59:10,603 ERROR: Exception on /monitoring [GET] [in /home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/roan/Documents/Scripts/microblog/app/routes.py", line 119, in monitoring
+    return render_template("image.html", image=+pngImageB64String)
+TypeError: bad operand type for unary +: 'str'
+2019-12-28 06:00:29,645 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2019-12-28 06:04:58,626 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2019-12-28 07:00:56,558 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:43:05,540 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:45:19,087 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:45:25,252 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:45:55,749 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:50:32,573 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:51:05,208 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:51:18,312 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:51:57,303 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:52:23,423 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:52:38,537 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:54:00,785 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:55:45,027 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:56:01,508 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:56:29,200 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:57:19,204 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 05:59:17,008 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 06:00:41,342 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 06:04:59,604 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 06:05:02,745 ERROR: Exception on /index [GET] [in /home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/roan/Documents/Scripts/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/roan/Documents/Scripts/microblog/app/routes.py", line 24, in index
+    systems = System.query.all()
+NameError: name 'System' is not defined
+2020-01-06 06:05:33,684 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 06:06:27,745 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-06 06:08:37,170 INFO: Microblog startup [in /home/roan/Documents/Scripts/microblog/app/__init__.py:43]

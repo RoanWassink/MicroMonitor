@@ -1,0 +1,139 @@
+2020-01-08 07:11:39,444 ERROR: Exception on /index [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.InterfaceError: Error binding parameter 0 - probably unsupported type.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 26, in index
+    test = System.query.get(system)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 982, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 1094, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 284, in load_on_pk_identity
+    return q.one()
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3325, in one
+    ret = self.one_or_none()
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3294, in one_or_none
+    ret = list(self)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3367, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3392, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1250, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.InterfaceError: (sqlite3.InterfaceError) Error binding parameter 0 - probably unsupported type.
+[SQL: SELECT system.id AS system_id_1, system.system_id AS system_system_id, system.timestamp AS system_timestamp 
+FROM system 
+WHERE system.id = ?]
+[parameters: (<System> Apache_server,)]
+(Background on this error at: http://sqlalche.me/e/rvf5)
+2020-01-08 07:12:36,163 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:19:26,805 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:19:29,160 ERROR: Exception on /index [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1974, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/usr/lib/python3/dist-packages/werkzeug/wrappers.py", line 921, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/usr/lib/python3/dist-packages/werkzeug/wrappers.py", line 59, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/usr/lib/python3/dist-packages/werkzeug/test.py", line 923, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'list' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1982, in make_response
+    reraise(TypeError, new_error, sys.exc_info()[2])
+  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 34, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1974, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/usr/lib/python3/dist-packages/werkzeug/wrappers.py", line 921, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/usr/lib/python3/dist-packages/werkzeug/wrappers.py", line 59, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/usr/lib/python3/dist-packages/werkzeug/test.py", line 923, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'list' object is not callable
+The view function did not return a valid response. The return type must be a string, tuple, Response instance, or WSGI callable, but it was a list.
+2020-01-08 07:21:26,197 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:22:24,786 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:27:59,116 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:30:14,521 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:30:34,169 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:31:06,593 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:31:51,302 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:32:07,965 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:32:09,227 ERROR: Exception on /index [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 28, in index
+    {'system_id': system.system_id}
+AttributeError: 'list' object has no attribute 'system_id'
+2020-01-08 07:33:26,789 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:47:55,876 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:52:21,698 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:53:06,181 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:54:59,473 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 07:57:32,605 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 08:04:22,910 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 08:04:30,861 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 09:42:31,779 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+2020-01-08 10:08:19,785 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]

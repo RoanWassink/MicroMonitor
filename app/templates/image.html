@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1> Data for placeholder system CPU usage:</h1>
+    <img src="{{ image }}"/>
+     <span class="dropdown-text">Switch server:</span>
+        <form name = "system" action = ' 'method ="POST" >
+            <select name="system" method="GET" action="/">
+                <!--<option value="{{systems[0]}}" selected>{{systems[0]}}</option>-->
+                {% for system in systems[1:] %}
+                <option value="{{system}}">{{system}}</option>
+                {% endfor %}
+            </select>
+            <input class="btn" type="submit" value="submit">
+        </form>
+
+
+{% endblock %}
