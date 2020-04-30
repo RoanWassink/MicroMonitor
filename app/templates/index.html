@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 <head>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
@@ -9,8 +10,7 @@
 </head>
 <body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
 
 
 
@@ -32,6 +32,13 @@
 </tbody>
 </table>
 
+
+</body>
+{% endblock %}
+{% block scripts %}
+{{super()}}
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" class="init">
 
 
@@ -41,5 +48,6 @@
 
 
 </script>
-</body>
+
+
 {% endblock %}

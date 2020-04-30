@@ -8,7 +8,7 @@ import logging
 from logging.handlers import SMTPHandler
 from logging.handlers import RotatingFileHandler
 import os
-app = Flask(__name__, static_path = '/static', static_url_path = '/static')
+app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.config.from_object(Config) #configuration file in top level directory, specifies password
 db = SQLAlchemy(app)
