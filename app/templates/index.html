@@ -1,8 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Logged in as, {{ current_user.username }}</h1>
-    {% for system in systems %}
-        {% include '_systems.html' %}
-    {% endfor %}    
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+
+
+</head>
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+
+<table id="systemTable" class=table table-hover">
+<thead valign="top">
+<th>System Name:</th>
+<th>CPU usage:</th>
+<th>Time:</th>
+</thead>
+<tbody>
+{% for system in systems[1:]%}
+<tr>
+    <td>{{system.system_id}}</td>
+    <td>{{system.cpu_usage}}</td>
+    <td>{{system.timestamp}}</td>
+
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<script type="text/javascript" class="init">
+
+
+    $(document).ready(function() {
+        $('#systemTable').DataTable();
+    } );
+
+
+</script>
+</body>
 {% endblock %}

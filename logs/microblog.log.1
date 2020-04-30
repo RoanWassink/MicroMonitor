@@ -1,143 +1,98 @@
-2020-01-08 10:08:23,335 ERROR: Exception on /monitoring [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
+2020-04-30 13:38:05,988 ERROR: Exception on /index [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 105, in monitoring
-    x.append(record[0])
-TypeError: 'CPU' object is not subscriptable
-2020-01-08 10:12:12,932 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 10:12:16,280 ERROR: Exception on /monitoring [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/units.py", line 155, in get_converter
-    return self[type(x)]
-KeyError: <class 'numpy.ndarray'>
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/units.py", line 155, in get_converter
-    return self[type(x)]
-KeyError: <class 'sqlalchemy.orm.attributes.InstrumentedAttribute'>
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 33, in index
+    return render_template('index.html', title='Home', systems=systems, sortparams=sortparams)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 14, in root
+  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 26, in block_content
+  File "/home/user/Documents/Scripts/microblog/app/templates/_systems.html", line 15, in root
+    <td>{{system.timestamp}}</td>
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'system' is undefined
+2020-04-30 13:38:06,650 ERROR: Exception on /index [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 110, in monitoring
-    ax.plot(x, y)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_axes.py", line 1665, in plot
-    lines = [*self._get_lines(*args, data=data, **kwargs)]
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_base.py", line 225, in __call__
-    yield from self._plot_args(this, kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_base.py", line 391, in _plot_args
-    x, y = self._xy_from_xy(x, y)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_base.py", line 243, in _xy_from_xy
-    bx = self.axes.xaxis.update_units(x)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axis.py", line 1487, in update_units
-    converter = munits.registry.get_converter(data)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/units.py", line 165, in get_converter
-    return self.get_converter(first)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/units.py", line 158, in get_converter
-    first = cbook.safe_first_element(x)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/cbook/__init__.py", line 1670, in safe_first_element
-    return next(iter(obj))
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/operators.py", line 432, in __getitem__
-    return self.operate(getitem, index)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/attributes.py", line 217, in operate
-    return op(self.comparator, *other, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/operators.py", line 432, in __getitem__
-    return self.operate(getitem, index)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/properties.py", line 315, in operate
-    return op(self.__clause_element__(), *other, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/operators.py", line 432, in __getitem__
-    return self.operate(getitem, index)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 725, in operate
-    return op(self.comparator, *other, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/operators.py", line 432, in __getitem__
-    return self.operate(getitem, index)
-  File "<string>", line 1, in <lambda>
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/type_api.py", line 67, in operate
-    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/default_comparator.py", line 237, in _getitem_impl
-    _unsupported_impl(expr, op, other, **kw)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/default_comparator.py", line 242, in _unsupported_impl
-    "Operator '%s' is not supported on " "this expression" % op.__name__
-NotImplementedError: Operator 'getitem' is not supported on this expression
-2020-01-08 10:12:54,795 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 10:13:17,623 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 10:32:50,625 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 10:43:37,739 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 10:49:02,859 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 11:20:38,051 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 11:20:38,867 ERROR: Exception on /monitoring [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 33, in index
+    return render_template('index.html', title='Home', systems=systems, sortparams=sortparams)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 109, in monitoring
-    figure = pyplot.figure(figsize=200)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/pyplot.py", line 545, in figure
-    **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/backend_bases.py", line 3258, in new_figure_manager
-    fig = fig_cls(*args, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/figure.py", line 351, in __init__
-    self.bbox_inches = Bbox.from_bounds(0, 0, *figsize)
-TypeError: from_bounds() argument after * must be an iterable, not int
-2020-01-08 11:21:24,046 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 11:23:45,790 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 11:23:49,369 ERROR: Exception on /monitoring [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 108, in monitoring
-    y.timestamp
-AttributeError: 'list' object has no attribute 'timestamp'
-2020-01-08 11:25:32,477 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 14, in root
+  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 26, in block_content
+  File "/home/user/Documents/Scripts/microblog/app/templates/_systems.html", line 15, in root
+    <td>{{system.timestamp}}</td>
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'system' is undefined

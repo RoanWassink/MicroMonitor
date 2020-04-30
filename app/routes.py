@@ -3,12 +3,13 @@ from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
-from app.models import User, System, CPU
-from datetime import datetime
+from app.models import User, System, CPU, Systemtest
+from datetime import datetime, date, time, timedelta
 from app.forms import EditProfileForm
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 #from matplotlib.figure import Figure
 import matplotlib.pyplot as pyplot
+import matplotlib.dates as mdates
 import matplotlib
 import io
 import base64
@@ -20,15 +21,16 @@ def before_request():
         db.session.commit()
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index', methods=['GET'])
 @login_required
 def index():
 
-    systems = System.query.all()
 
 
+    systems = db.session.query(System.system_id, System.cpu_usage, System.timestamp).all()
 
-    return render_template('index.html', title='Home', systems=systems)
+    sortparams = {'sortby': 'column_name', 'sortdir': 'asc'}
+    return render_template('index.html', title='Home', systems=systems, sortparams=sortparams)
 
 
 
@@ -99,29 +101,61 @@ def edit_profile():
 @app.route('/monitoring', methods=['GET', 'POST'])
 @login_required
 def monitoring():
-    print("print test")
+    session = db.session
     systemSelection = request.form.get("system")
-    print(systemSelection)
 
-    result = CPU.query.all()
+
+    if systemSelection is None:
+        #Query cpu_usage
+        query= session.query(System.cpu_usage).filter_by(system_id = 'ubuntu').all()
+        #query Timestamps
+        query2 = session.query(System.timestamp).filter_by(system_id='ubuntu').all()
+        systemSelection = 'ubuntu'
+    else:
+        query2 = session.query(System.timestamp).filter_by(system_id=systemSelection).all()
+        query = session.query(System.cpu_usage).filter_by(system_id=systemSelection).all()
+
+
+
+
+
+
+
+
     x = []
     y = []
-    for record in result:
-        x.append(record.cpu_usage)
-        y.append(record.timestamp)
+    #add cpu usage to x
+    for row in query:
+        x.append(row)
 
-    systems = System.query.all()
+
+    #add timestamp to y
+    for row2 in query2:
+        y.append(row2)
+
+    datenow = datetime.now()
+    dstart = datenow - timedelta(days=1)
+    days= mdates.DateFormatter('%d')
+    hours_fmt = mdates.DateFormatter('%H')
+    hours = mdates.HourLocator()
+    #draw the graph
     figure = pyplot.figure(figsize=(10, 10))
+    figure.autofmt_xdate()
     ax = pyplot.axes()
     ax.plot(y, x)
-    ax.plot()
-    # fig.add_subplot()
-    # axis = fig.add_subplot(1, 1, 1)
-    # axis.set_title("title")
-    ax.set_xlabel("Date")
+    ax.set_title(str(systemSelection))
+    ax.set_xlabel("Hours")
+    ax.format_xdata = mdates.DateFormatter('%h:%m')
+    ax.set_xlim(dstart, datenow)
+    ax.set_ylim([0, 100])
+
+    #ax.xaxis.set_major_locator(hours)
+
+    ax.xaxis.set_major_formatter(hours_fmt)
+    ax.xaxis.set_minor_formatter(days)
     ax.set_ylabel("CPU usage %")
-    # axis.grid()
-    # axis.plot(range(100), range(100), "ro-")
+    ax.grid()
+
 
     # Convert plot to PNG image
     pngImage = io.BytesIO()
@@ -131,4 +165,16 @@ def monitoring():
     pngImageB64String = "data:image/png;base64,"
     pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')
 
-    return render_template("image.html", image=pngImageB64String, systems=systems)
+    #query db for all system_id's
+    systems = session.query(System.system_id).all()
+    mylist= []
+    #for loop to add the values from the db to a list
+    for lists in systems:
+        mylist.append(*lists._asdict().values())
+
+    #make the list contain only distinct items by converting it to a set and back
+    uniqueList = list(set(mylist))
+
+    return render_template("image.html", image=pngImageB64String, systems=uniqueList)
+
+

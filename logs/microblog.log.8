@@ -1,0 +1,42 @@
+2020-04-30 13:08:50,611 ERROR: Exception on /index [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 27, in index
+    from flask_table import Table, Col
+  File "/home/user/.local/lib/python3.7/site-packages/flask_table/__init__.py", line 1, in <module>
+    from .table import Table, create_table
+  File "/home/user/.local/lib/python3.7/site-packages/flask_table/table.py", line 8, in <module>
+    from .columns import Col
+  File "/home/user/.local/lib/python3.7/site-packages/flask_table/columns.py", line 161, in <module>
+    class BoolCol(OptCol):
+  File "/home/user/.local/lib/python3.7/site-packages/flask_table/columns.py", line 166, in BoolCol
+    yes_display = _('Yes')
+  File "/home/user/.local/lib/python3.7/site-packages/flask_babel/__init__.py", line 548, in gettext
+    t = get_translations()
+  File "/home/user/.local/lib/python3.7/site-packages/flask_babel/__init__.py", line 217, in get_translations
+    babel = current_app.extensions['babel']
+KeyError: 'babel'
+2020-04-30 13:16:18,582 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:16:48,053 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:17:31,626 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:19:03,253 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:19:27,889 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:20:19,669 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:21:16,372 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:21:33,756 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:22:23,867 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:23:23,998 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-04-30 13:24:16,540 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]

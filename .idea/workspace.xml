@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a447dc81-f652-4fbc-822c-dfffbb81a6af" name="Default Changelist" comment="" />
+    <list default="true" id="a447dc81-f652-4fbc-822c-dfffbb81a6af" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/app/logs/microblog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_systems.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/_systems.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/image.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/image.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/microblog.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/microblog.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/microblog.log.4" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/microblog.log.5" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/microblog.log.6" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pyvenv.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pyvenv.cfg" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,14 +34,18 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1W7J7UlE0oKYY6PcZH5zKQxdn9y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
@@ -52,18 +76,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -78,34 +90,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1827" height="275" key="GridCell.Tab.0.bottom" timestamp="1587985106944">
+    <state width="1827" height="275" key="GridCell.Tab.0.bottom" timestamp="1588243663286">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1625" height="275" key="GridCell.Tab.0.bottom/70.27.1648.901@70.27.1648.901" timestamp="1579195211645" />
-    <state width="1827" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1587985106944" />
-    <state width="1827" height="275" key="GridCell.Tab.0.center" timestamp="1587985106943">
+    <state width="1827" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588243663286" />
+    <state width="1827" height="275" key="GridCell.Tab.0.center" timestamp="1588243663286">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1625" height="275" key="GridCell.Tab.0.center/70.27.1648.901@70.27.1648.901" timestamp="1579195211645" />
-    <state width="1827" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1587985106943" />
-    <state width="1827" height="275" key="GridCell.Tab.0.left" timestamp="1587985106942">
+    <state width="1827" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588243663286" />
+    <state width="1827" height="275" key="GridCell.Tab.0.left" timestamp="1588243663285">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1625" height="275" key="GridCell.Tab.0.left/70.27.1648.901@70.27.1648.901" timestamp="1579195211645" />
-    <state width="1827" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1587985106942" />
-    <state width="1827" height="275" key="GridCell.Tab.0.right" timestamp="1587985106943">
+    <state width="1827" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588243663285" />
+    <state width="1827" height="275" key="GridCell.Tab.0.right" timestamp="1588243663286">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1625" height="275" key="GridCell.Tab.0.right/70.27.1648.901@70.27.1648.901" timestamp="1579195211645" />
-    <state width="1827" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1587985106943" />
-    <state x="651" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1578494537622">
+    <state width="1827" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588243663286" />
+    <state x="686" y="165" width="1012" height="777" key="find.popup" timestamp="1588251306307">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="651" y="380" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1578494537622" />
-    <state x="1115" y="333" width="672" height="678" key="search.everywhere.popup" timestamp="1578495725915">
-      <screen x="70" y="27" width="1850" height="1053" />
-    </state>
-    <state x="1115" y="333" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1578495725915" />
+    <state x="686" y="165" width="1012" height="777" key="find.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1588251306307" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

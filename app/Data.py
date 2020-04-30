@@ -1,15 +1,20 @@
 import matplotlib
 import psutil
+import time
 import datetime
 from app import app, db
-from app.models import CPU, System
+from app.models import System
 import socket
-
-def cpu_percent():
-    p = CPU(cpu_usage=psutil.cpu_percent(), system_id=socket.gethostname())
-    db.session.add(p)
-    db.session.commit()
+sampleFreq = 1*30
 
 
+def main():
+    while True:
+        system_id = socket.gethostname()
+        cpu_usage = psutil.cpu_percent()
+        p = System(cpu_usage=cpu_usage, system_id=system_id)
+        db.session.add(p)
+        db.session.commit()
+        time.sleep(sampleFreq)
 
-cpu_percent()
+main()

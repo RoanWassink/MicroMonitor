@@ -1,139 +1,126 @@
-2020-01-08 07:11:39,444 ERROR: Exception on /index [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
+2020-04-30 13:37:53,642 ERROR: Exception on /index [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 581, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.InterfaceError: Error binding parameter 0 - probably unsupported type.
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
+  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 26, in index
-    test = System.query.get(system)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 982, in get
-    return self._get_impl(ident, loading.load_on_pk_identity)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 1094, in _get_impl
-    return db_load_fn(self, primary_key_identity)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 284, in load_on_pk_identity
-    return q.one()
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3325, in one
-    ret = self.one_or_none()
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3294, in one_or_none
-    ret = list(self)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3367, in __iter__
-    return self._execute_and_instances(context)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3392, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
-    return meth(self, multiparams, params)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1101, in _execute_clauseelement
-    distilled_params,
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1250, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1476, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
-    raise value.with_traceback(tb)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1246, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 581, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.InterfaceError: (sqlite3.InterfaceError) Error binding parameter 0 - probably unsupported type.
-[SQL: SELECT system.id AS system_id_1, system.system_id AS system_system_id, system.timestamp AS system_timestamp 
-FROM system 
-WHERE system.id = ?]
-[parameters: (<System> Apache_server,)]
-(Background on this error at: http://sqlalche.me/e/rvf5)
-2020-01-08 07:12:36,163 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:19:26,805 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:19:29,160 ERROR: Exception on /index [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1974, in make_response
-    rv = self.response_class.force_type(rv, request.environ)
-  File "/usr/lib/python3/dist-packages/werkzeug/wrappers.py", line 921, in force_type
-    response = BaseResponse(*_run_wsgi_app(response, environ))
-  File "/usr/lib/python3/dist-packages/werkzeug/wrappers.py", line 59, in _run_wsgi_app
-    return _run_wsgi_app(*args)
-  File "/usr/lib/python3/dist-packages/werkzeug/test.py", line 923, in run_wsgi_app
-    app_rv = app(environ, start_response)
-TypeError: 'list' object is not callable
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1816, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1831, in finalize_request
-    response = self.make_response(rv)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1982, in make_response
-    reraise(TypeError, new_error, sys.exc_info()[2])
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 34, in reraise
-    raise value.with_traceback(tb)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1974, in make_response
-    rv = self.response_class.force_type(rv, request.environ)
-  File "/usr/lib/python3/dist-packages/werkzeug/wrappers.py", line 921, in force_type
-    response = BaseResponse(*_run_wsgi_app(response, environ))
-  File "/usr/lib/python3/dist-packages/werkzeug/wrappers.py", line 59, in _run_wsgi_app
-    return _run_wsgi_app(*args)
-  File "/usr/lib/python3/dist-packages/werkzeug/test.py", line 923, in run_wsgi_app
-    app_rv = app(environ, start_response)
-TypeError: 'list' object is not callable
-The view function did not return a valid response. The return type must be a string, tuple, Response instance, or WSGI callable, but it was a list.
-2020-01-08 07:21:26,197 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:22:24,786 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:27:59,116 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:30:14,521 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:30:34,169 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:31:06,593 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:31:51,302 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:32:07,965 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:32:09,227 ERROR: Exception on /index [GET] [in /usr/lib/python3/dist-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 33, in index
+    return render_template('index.html', title='Home', systems=systems, sortparams=sortparams)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/usr/lib/python3/dist-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 28, in index
-    {'system_id': system.system_id}
-AttributeError: 'list' object has no attribute 'system_id'
-2020-01-08 07:33:26,789 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:47:55,876 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:52:21,698 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:53:06,181 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:54:59,473 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 07:57:32,605 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 08:04:22,910 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 08:04:30,861 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 09:42:31,779 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
-2020-01-08 10:08:19,785 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:43]
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/_systems.html", line 3, in template
+    <a href="{{ url_for('index', sortby=system.system_id}}">Sorted by System ID</a>
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 14, in root
+  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 14, in root
+    <span class="icon-bar"></span>
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 25, in block_content
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/_systems.html", line 3, in template
+    <a href="{{ url_for('index', sortby=system.system_id}}">Sorted by System ID</a>
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 875, in subparse
+    add_data(self.parse_tuple(with_condexpr=True))
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 620, in parse_tuple
+    args.append(parse())
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 547, in parse_unary
+    node = self.parse_postfix(node)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 676, in parse_postfix
+    node = self.parse_call(node)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 785, in parse_call
+    value = self.parse_expression()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 547, in parse_unary
+    node = self.parse_postfix(node)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 672, in parse_postfix
+    node = self.parse_subscript(node)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 700, in parse_subscript
+    next(self.stream)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/lexer.py", line 359, in __next__
+    self.current = next(self._iter)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/lexer.py", line 562, in wrap
+    for lineno, token, value in stream:
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/lexer.py", line 690, in tokeniter
+    filename)
+jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
+2020-04-30 13:38:03,748 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
