@@ -47,6 +47,8 @@ class System(db.Model):
     system_id = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     cpu_usage = db.Column(db.Float)
+    cpu_temp = db.Column(db.Float)
+
     def __repr__(self):
         return '{}'.format(self.system_id)
 
