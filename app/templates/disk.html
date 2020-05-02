@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <meta http-equiv="refresh" content="30; {{url_for('disk')}}">
+    <h1>CPU usage:</h1>
+    {{plot|safe}}
+    <span class="dropdown-text">Switch server:</span>
+        <form name = "system" action = ' 'method ="POST" >
+            <select name="system" method="GET" action="/">
+            <  !--<option value="{{systems[0]}}"{ selected>{{systems[0]}}</option>-->
+                {% for system in systems[1:] %}
+                <option value="{{system}}">{{system}}</option>
+                {% endfor %}
+            </select>
+            <input class="btn" type="submit" value="submit">
+        </form>
+
+
+
+{% endblock %}

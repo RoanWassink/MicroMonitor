@@ -1,3 +1,5 @@
+from itertools import chain
+
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
@@ -7,10 +9,14 @@ from app.models import User, System, CPU, Systemtest
 from datetime import datetime, date, time, timedelta
 from app.forms import EditProfileForm
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.backends.backend_svg import FigureCanvasSVG
 #from matplotlib.figure import Figure
-import matplotlib.pyplot as pyplot
+import matplotlib.pyplot as pyplot, mpld3
+from mpld3 import plugins
 import matplotlib.dates as mdates
-import matplotlib
+import pandas as pd
+import numpy as np
+
 import io
 import base64
 
@@ -27,10 +33,10 @@ def index():
 
 
 
-    systems = db.session.query(System.system_id, System.cpu_usage, System.timestamp).all()
+    systems = db.session.query(System.system_id, System.cpu_usage, System.timestamp, System.disk_free).all()
 
-    sortparams = {'sortby': 'column_name', 'sortdir': 'asc'}
-    return render_template('index.html', title='Home', systems=systems, sortparams=sortparams)
+
+    return render_template('index.html', title='Home', systems=systems)
 
 
 
@@ -98,83 +104,126 @@ def edit_profile():
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
-@app.route('/monitoring', methods=['GET', 'POST'])
+@app.route('/cpu', methods=['GET', 'POST'])
 @login_required
-def monitoring():
+def cpu():
+    css = """
+       table
+       {
+         border-collapse: collapse;
+       }
+       th
+       {
+         color: #ffffff;
+         background-color: #000000;
+       }
+       td
+       {
+         background-color: #cccccc;
+       }
+       table, th, td
+       {
+         font-family:Arial, Helvetica, sans-serif;
+         border: 1px solid black;
+         text-align: right;
+       }
+       """
     session = db.session
     systemSelection = request.form.get("system")
 
-
+    #Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
     if systemSelection is None:
-        #Query cpu_usage
-        query= session.query(System.cpu_usage).filter_by(system_id = 'ubuntu').all()
-        #query Timestamps
+        # Query cpu_usage
+        query = session.query(System.cpu_usage).filter_by(system_id='ubuntu').all()
+        # query Timestamps
         query2 = session.query(System.timestamp).filter_by(system_id='ubuntu').all()
         systemSelection = 'ubuntu'
     else:
         query2 = session.query(System.timestamp).filter_by(system_id=systemSelection).all()
         query = session.query(System.cpu_usage).filter_by(system_id=systemSelection).all()
 
-
-
-
-
-
-
-
-    x = []
-    y = []
-    #add cpu usage to x
+    cpu_list = []
+    timestamp_list = []
+    # add cpu usage to x
     for row in query:
-        x.append(row)
+        cpu_list.append(row)
 
-
-    #add timestamp to y
+    # add timestamp to y
     for row2 in query2:
-        y.append(row2)
+        timestamp_list.append(row2)
 
-    datenow = datetime.now()
-    dstart = datenow - timedelta(days=1)
-    days= mdates.DateFormatter('%d')
-    hours_fmt = mdates.DateFormatter('%H')
-    hours = mdates.HourLocator()
-    #draw the graph
-    figure = pyplot.figure(figsize=(10, 10))
+
+    def flatten(listOfLists):
+        "Flatten one level of nesting"
+        return chain.from_iterable(listOfLists)
+    # draw the graph
+    figure = pyplot.figure(figsize=(8, 8))
     figure.autofmt_xdate()
     ax = pyplot.axes()
-    ax.plot(y, x)
+    cpu_list = list(flatten(cpu_list))
+    time_list = list(flatten(timestamp_list))
+    lines = ax.plot(time_list, cpu_list, marker='o', ls='-', ms=5)
+    ax.fill_between(time_list, cpu_list)
     ax.set_title(str(systemSelection))
     ax.set_xlabel("Hours")
-    ax.format_xdata = mdates.DateFormatter('%h:%m')
-    ax.set_xlim(dstart, datenow)
-    ax.set_ylim([0, 100])
-
-    #ax.xaxis.set_major_locator(hours)
-
-    ax.xaxis.set_major_formatter(hours_fmt)
-    ax.xaxis.set_minor_formatter(days)
     ax.set_ylabel("CPU usage %")
     ax.grid()
-
-
-    # Convert plot to PNG image
-    pngImage = io.BytesIO()
-    FigureCanvas(figure).print_png(pngImage)
-
-    # Encode PNG image to base64 string
-    pngImageB64String = "data:image/png;base64,"
-    pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')
-
-    #query db for all system_id's
+    # query db for all system_id's
     systems = session.query(System.system_id).all()
-    mylist= []
-    #for loop to add the values from the db to a list
+    system_list = []
+    # for loop to add the va
+    # appends values from the db to mylist
     for lists in systems:
-        mylist.append(*lists._asdict().values())
+        system_list.append(*lists._asdict().values())
 
-    #make the list contain only distinct items by converting it to a set and back
-    uniqueList = list(set(mylist))
+    labels = cpu_list
 
-    return render_template("image.html", image=pngImageB64String, systems=uniqueList)
+    tooltip = plugins.PointHTMLTooltip(lines[0], labels,
+                                       voffset=10, hoffset=10, css=css)
+    plugins.connect(figure, tooltip)
+    html_text = mpld3.fig_to_html(figure)
 
 
+
+    # make the list contain only distinct items by converting it to a set and back
+    uniqueList = list(set(system_list))
+
+    return render_template('cpu.html', plot=html_text, systems=uniqueList)
+
+
+
+@app.route('/disk', methods=['GET', 'POST'])
+def disk():
+    session = db.session
+    systemSelection = request.form.get("system")
+
+    # Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
+    if systemSelection is None:
+        # Query cpu_usage
+        query = session.query(System.disk_free).filter_by(system_id='ubuntu').order_by(-System.timestamp).first()
+        query2 = session.query(System.disk_used).filter_by(system_id='ubuntu').order_by(-System.timestamp).first()
+
+        systemSelection = 'ubuntu'
+    else:
+        query = session.query(System.disk_free).filter_by(system_id='ubuntu').order_by(-System.timestamp).first()
+        query2 = session.query(System.disk_used).filter_by(system_id='ubuntu').order_by(-System.timestamp).first()
+
+
+    figure = pyplot.figure(figsize=(5, 5))
+    labels = 'Frogs', 'Hogs'
+    sizes = [query, query2]
+    explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+    ax1 = pyplot.axes()
+    ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+            shadow=True, startangle=90)
+    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    system_list= []
+    systems = session.query(System.system_id).all()
+    for lists in systems:
+        system_list.append(*lists._asdict().values())
+
+    uniqueList = list(set(system_list))
+
+    html_text = mpld3.fig_to_html(figure)
+    return render_template('disk.html', plot=html_text, systems=uniqueList)

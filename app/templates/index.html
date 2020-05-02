@@ -18,14 +18,18 @@
 <thead valign="top">
 <th>System Name:</th>
 <th>CPU usage:</th>
+<th>Disk space available:</th>
 <th>Time:</th>
+
 </thead>
 <tbody>
 {% for system in systems[1:]%}
 <tr>
     <td>{{system.system_id}}</td>
     <td>{{system.cpu_usage}}</td>
+    <td>{{system.disk_free}}</td>
     <td>{{system.timestamp}}</td>
+
 
 </tr>
 {% endfor %}
@@ -43,7 +47,9 @@
 
 
     $(document).ready(function() {
-        $('#systemTable').DataTable();
+        $('#systemTable').DataTable( {
+        "order":[[3, "desc"]]
+        })
     } );
 
 
