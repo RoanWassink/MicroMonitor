@@ -1,25 +1,46 @@
-import matplotlib
-import psutil
-import time
-import datetime
+import socket
+import select
+from operator import itemgetter
 from app import app, db
 from app.models import System
-import socket
-sampleFreq = 1*30
 
-
-def main():
+with socket.socket() as server:
+    server.bind(('localhost',5001))
+    server.listen(50)
+    to_read = [server]  # add server to list of readable sockets.
+    clients = {}
     while True:
-        system_id = socket.gethostname()
-        cpu_usage = psutil.cpu_percent(interval=1)
-        #cpu_temp = psutil.sensors_temperatures()
-        disk_space = psutil.disk_usage('/')
-        disk_percent= disk_space.percent
-        disk_free = disk_space.free
-        disk_used = disk_space.used
-        p = System(cpu_usage=cpu_usage, system_id=system_id, disk_percent=disk_percent, disk_free=disk_free, disk_used=disk_used)
-        db.session.add(p)
-        db.session.commit()
-        time.sleep(sampleFreq)
+        # check for a connection to the server or data ready from clients.
+        # readers will be empty on timeout.
+        readers,_,_ = select.select(to_read,[],[],0.5)
+        for reader in readers:
+            if reader is server:
+                client,address = reader.accept()
+                #print('connected',address)
+                clients[client] = address # store address of client in dict
+                to_read.append(client) # add client to list of readable sockets
+            else:
+                # Simplified, really need a message protocol here.
+                # For example, could receive a partial UTF-8 encoded sequence.
+                data = reader.recv(4096)
+                data = data.decode('utf-8')
 
-main()
+
+
+
+
+                if not data: # No data indicates disconnect
+                    #print('disconnected',clients[reader])
+                    to_read.remove(reader) # remove from monitoring
+                    del clients[reader] # remove from dict as well
+                else:
+                    #print(data)
+                    data = data.strip('][').split(', ')
+                    system_id, cpu_usage, disk_percent, disk_free, disk_used = data
+                    system_id=system_id.replace("'", "")
+                    print(system_id)
+                    p = System(cpu_usage=cpu_usage, system_id=system_id, disk_percent=disk_percent, disk_free=disk_free,
+                               disk_used=disk_used)
+                    db.session.add(p)
+                    db.session.commit()
+        print('.',flush=True,end='')

@@ -157,7 +157,7 @@ def cpu():
         "Flatten one level of nesting"
         return chain.from_iterable(listOfLists)
     # draw the graph
-    figure = pyplot.figure(figsize=(8, 8))
+    figure = pyplot.figure(figsize=(10, 5))
     figure.autofmt_xdate()
     ax = pyplot.axes()
     cpu_list = list(flatten(cpu_list))
@@ -210,7 +210,7 @@ def disk():
 
 
     figure = pyplot.figure(figsize=(5, 5))
-    labels = 'Frogs', 'Hogs'
+    labels = 'Free space', 'Used space'
     sizes = [query, query2]
     explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
@@ -218,6 +218,7 @@ def disk():
     ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
             shadow=True, startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    ax1.legend(labels)
     system_list= []
     systems = session.query(System.system_id).all()
     for lists in systems:

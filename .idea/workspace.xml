@@ -4,27 +4,11 @@
     <list default="true" id="a447dc81-f652-4fbc-822c-dfffbb81a6af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.db-journal" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/Data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/app/logs/microblog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.4" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.5" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.6" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/microblog.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.9" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -48,11 +33,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.client">
     <configuration name="Data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="microblog" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,9 +60,53 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="microblog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="routes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="microblog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/routes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.client" />
         <item itemvalue="Python.Data" />
+        <item itemvalue="Python.routes" />
       </list>
     </recent_temporary>
   </component>
@@ -94,22 +124,38 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1827" height="275" key="GridCell.Tab.0.bottom" timestamp="1588426820405">
+    <state width="1827" height="275" key="GridCell.Tab.0.bottom" timestamp="1588683339813">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1827" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588426820405" />
-    <state width="1827" height="275" key="GridCell.Tab.0.center" timestamp="1588426820404">
+    <state width="1827" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588683339813" />
+    <state width="1827" height="275" key="GridCell.Tab.0.center" timestamp="1588683339812">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1827" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588426820404" />
-    <state width="1827" height="275" key="GridCell.Tab.0.left" timestamp="1588426820404">
+    <state width="1827" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588683339812" />
+    <state width="1827" height="275" key="GridCell.Tab.0.left" timestamp="1588683339811">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1827" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588426820404" />
-    <state width="1827" height="275" key="GridCell.Tab.0.right" timestamp="1588426820404">
+    <state width="1827" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588683339811" />
+    <state width="1827" height="275" key="GridCell.Tab.0.right" timestamp="1588683339812">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1827" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588426820404" />
+    <state width="1827" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588683339812" />
+    <state width="1827" height="340" key="GridCell.Tab.1.bottom" timestamp="1588681267077">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1827" height="340" key="GridCell.Tab.1.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588681267077" />
+    <state width="1827" height="340" key="GridCell.Tab.1.center" timestamp="1588681267077">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1827" height="340" key="GridCell.Tab.1.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588681267077" />
+    <state width="1827" height="340" key="GridCell.Tab.1.left" timestamp="1588681267077">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1827" height="340" key="GridCell.Tab.1.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588681267077" />
+    <state width="1827" height="340" key="GridCell.Tab.1.right" timestamp="1588681267077">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1827" height="340" key="GridCell.Tab.1.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588681267077" />
     <state x="686" y="165" width="1012" height="777" key="find.popup" timestamp="1588251306307">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
