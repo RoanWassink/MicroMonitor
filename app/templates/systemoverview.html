@@ -1,25 +1,22 @@
 {% extends "base.html" %}
 
 
-{% block app_content %}
+{% block content %}
 <head>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+
+
 </head>
 <body>
 
 
 
 
-<h1>Log entries</h1>
-<p>Every System update is logged here. Useful for referencing events.</p>
+<div class = "container">
 <table id="systemTable" class=table table-hover">
 <thead valign="top">
 <th>System Name:</th>
-<th>System OS:</th>
-<th>System CPU cores:</th>
-<th>System CPU clockspeed:</th>
-<th>System Total Memory:</th>
-<th>System Memory used:</th>
 <th>CPU usage:</th>
 <th>Disk space available:</th>
 <th>Time:</th>
@@ -29,19 +26,25 @@
 {% for system in systems[1:]%}
 <tr>
     <td>{{system.system_id}}</td>
-    <td>{{system.os}}</td>
-    <td>{{system.cores_phys}}</td>
-    <td>{{system.cpu_freq_max}}</td>
-    <td>{{system.memory_total}}</td>
-    <td>{{system.memory_percent}}</td>
-    <td>{{system.cpu_usage}}</td>
+    <td>{{system.cpu_cores_phys}}</td>
     <td>{{system.disk_free}}</td>
-    <td>{{system.timestamp}}</td>
+    <td>{{system.memory_total}}</td>
+
 </tr>
 {% endfor %}
 </tbody>
 </table>
-
+    <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                New Style
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+</div>
 
 </body>
 {% endblock %}
@@ -54,7 +57,7 @@
 
     $(document).ready(function() {
         $('#systemTable').DataTable( {
-        "order":[[8, "desc"]]
+        "order":[[3, "desc"]]
         })
     } );
 

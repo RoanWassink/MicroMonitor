@@ -1,11 +1,4 @@
-2020-05-02 17:36:45,835 ERROR: Exception on /disk [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 776, in visit_textual_label_reference
-    col = with_cols[element.element]
-KeyError: 'system_timestamp'
-
-During handling of the above exception, another exception occurred:
-
+2020-05-10 13:22:08,707 ERROR: Exception on /about [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -19,58 +12,55 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 203, in disk
-    query = session.query(System.disk_free).filter_by(system_id='ubuntu').order_by('system_timestamp').first()
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3265, in first
-    ret = list(self[0:1])
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3043, in __getitem__
-    return list(res)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3367, in __iter__
-    return self._execute_and_instances(context)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3392, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 982, in execute
-    return meth(self, multiparams, params)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1092, in _execute_clauseelement
-    else None,
-  File "<string>", line 1, in <lambda>
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 462, in compile
-    return self._compiler(dialect, bind=bind, **kw)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 468, in _compiler
-    return dialect.statement_compiler(dialect, self, **kw)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 571, in __init__
-    Compiled.__init__(self, dialect, statement, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 319, in __init__
-    self.string = self.process(self.statement, **compile_kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 350, in process
-    return obj._compiler_dispatch(self, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/visitors.py", line 92, in _compiler_dispatch
-    return meth(self, **kw)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 2140, in visit_select
-    text, select, inner_columns, froms, byfrom, kwargs
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 2252, in _compose_select_body
-    text += self.order_by_clause(select, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 2311, in order_by_clause
-    order_by = select._order_by_clause._compiler_dispatch(self, **kw)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/visitors.py", line 92, in _compiler_dispatch
-    return meth(self, **kw)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 983, in visit_clauselist
-    c._compiler_dispatch(self, **kw) for c in clauselist.clauses
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 981, in <genexpr>
-    s
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 983, in <genexpr>
-    c._compiler_dispatch(self, **kw) for c in clauselist.clauses
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/visitors.py", line 92, in _compiler_dispatch
-    return meth(self, **kw)
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 781, in visit_textual_label_reference
-    "Can't resolve label reference for ORDER BY / "
-  File "/home/user/.local/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 4609, in _no_text_coercion
-    "extra": "%s " % extra if extra else "",
-sqlalchemy.exc.CompileError: Can't resolve label reference for ORDER BY / GROUP BY / DISTINCT etc. Textual SQL expression 'system_timestamp' should be explicitly declared as text('system_timestamp')
-2020-05-02 17:37:44,353 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:37:45,423 ERROR: Exception on /disk [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 333, in about
+    return render_template('about.html', title = 'About')
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/about.html", line 106, in template
+    {% endblock %}
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'.
+2020-05-10 13:22:33,061 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:23:37,722 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:23:57,838 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:24:07,745 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:24:21,515 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:24:41,179 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:25:55,793 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:26:37,581 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:27:16,670 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:28:02,123 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:29:38,164 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:32:54,463 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:48:16,510 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:48:17,368 ERROR: Exception on /about [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -84,46 +74,29 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 219, in disk
-    shadow=True, startangle=90)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/__init__.py", line 1599, in inner
-    return func(ax, *map(sanitize_sequence, args), **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_axes.py", line 2982, in pie
-    raise ValueError("'label' must be of length 'x'")
-ValueError: 'label' must be of length 'x'
-2020-05-02 17:38:22,132 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:38:45,498 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:40:18,679 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:40:26,447 ERROR: Exception on /disk [POST] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 333, in about
+    return render_template('about.html', title = 'About')
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 208, in disk
-    query = session.query(System.disk_free).filter_by(system_id='ubuntu').last()
-AttributeError: 'BaseQuery' object has no attribute 'last'
-2020-05-02 17:40:43,797 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:41:33,408 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:42:14,531 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:43:12,013 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:45:31,677 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:45:40,552 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:47:10,946 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:49:52,337 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:52:48,874 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:53:53,039 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:56:00,906 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 17:59:04,200 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 18:00:38,878 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 18:04:20,599 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 18:07:27,962 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 18:08:17,495 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/about.html", line 4, in top-level template code
+    {% block head %}
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/user/Documents/Scripts/microblog/app/templates/about.html", line 11, in root
+    {{ bootstrap.load_css() }}
+  File "/home/user/Documents/Scripts/microblog/app/templates/about.html", line 24, in block_head
+    <!-- Optional JavaScript -->
+  File "/home/user/Documents/Scripts/microblog/app/templates/about.html", line 34, in block_styles
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'bootstrap' is undefined

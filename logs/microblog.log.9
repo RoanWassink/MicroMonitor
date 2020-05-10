@@ -1,14 +1,7 @@
-2020-05-02 15:38:40,805 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:22:22,660 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:24:47,005 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:26:31,133 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:27:53,641 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:30:37,758 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:33:02,085 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:34:42,399 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:35:32,044 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:39:10,201 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:39:11,842 ERROR: Exception on /index [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
+2020-05-06 14:34:06,106 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:47:40,564 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:48:51,218 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:48:53,567 ERROR: Exception on /cpu [POST] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -24,50 +17,31 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 39, in index
-    return render_template('index.html', title='Home', systems=systems)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 14, in root
-  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 14, in root
-    <li class="nav-item dropdown">
-  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
-    {% block body -%}
-  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
-  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 90, in block_body
-  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 43, in block_navbar
-    <div class="alert alert-info" role="alert">{{ message }}</div>
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/user/.local/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "/home/user/.local/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'cpu'. Did you mean 'user' instead?
-2020-05-02 16:42:12,095 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-02 16:42:13,981 ERROR: Exception on /index [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 170, in cpu
+    timehour = [cpu, str(time.hour+ ":"+time.minute)]
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+2020-05-06 14:49:38,915 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:51:17,691 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:51:35,825 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:54:17,018 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:54:31,092 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:54:55,896 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:55:16,891 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:55:34,943 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-06 14:56:03,893 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:21:12,399 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:21:37,036 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:24:49,703 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:25:02,180 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:25:26,760 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:25:28,940 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:27:26,155 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:27:28,300 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:28:10,439 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:28:12,671 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:30:55,363 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:37:48,320 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:37:54,093 ERROR: Exception on /memory [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -83,46 +57,23 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 39, in index
-    return render_template('index.html', title='Home', systems=systems)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 14, in root
-  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 14, in root
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
-    {% block body -%}
-  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
-  File "/home/user/.local/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 90, in block_body
-  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 42, in block_navbar
-    {% endfor %}
-  File "/home/user/.local/lib/python3.7/site-packages/jinja2/runtime.py", line 262, in call
-    return __obj(*args, **kwargs)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/user/.local/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "/home/user/.local/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'cpu'. Did you mean 'user' instead?
-2020-05-02 16:42:37,062 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 277, in memory
+    lines = ax.plot(time_list, cpu_list, marker='o', ls='-', ms=5)
+  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_axes.py", line 1667, in plot
+    self.add_line(line)
+  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_base.py", line 1902, in add_line
+    self._update_line_limits(line)
+  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_base.py", line 1924, in _update_line_limits
+    path = line.get_path()
+  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/lines.py", line 1027, in get_path
+    self.recache()
+  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/lines.py", line 675, in recache
+    y = _to_unmasked_float_array(yconv).ravel()
+  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/cbook/__init__.py", line 1390, in _to_unmasked_float_array
+    return np.asarray(x, float)
+  File "/home/user/.local/lib/python3.7/site-packages/numpy/core/_asarray.py", line 85, in asarray
+    return array(a, dtype, copy=False, order=order)
+ValueError: could not convert string to float: "'3.01GB'"
+2020-05-08 13:42:51,801 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:47:37,979 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-08 13:51:05,418 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]

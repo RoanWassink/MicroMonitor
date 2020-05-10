@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <meta http-equiv="refresh" content="30; {{url_for('disk')}}">
-    <h1>CPU usage:</h1>
+    <h1>Disk space:</h1>
     {{plot|safe}}
     <span class="dropdown-text">Switch server:</span>
         <form name = "system" action = ' 'method ="POST" >

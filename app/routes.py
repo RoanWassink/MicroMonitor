@@ -5,12 +5,12 @@ from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
-from app.models import User, System, CPU, Systemtest
+from app.models import User, System
 from datetime import datetime, date, time, timedelta
 from app.forms import EditProfileForm
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.backends.backend_svg import FigureCanvasSVG
-#from matplotlib.figure import Figure
+# from matplotlib.figure import Figure
 import matplotlib.pyplot as pyplot, mpld3
 from mpld3 import plugins
 import matplotlib.dates as mdates
@@ -19,6 +19,7 @@ import numpy as np
 
 import io
 import base64
+session = db.session
 
 @app.before_request
 def before_request():
@@ -26,19 +27,16 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
+
 @app.route('/')
 @app.route('/index', methods=['GET'])
 @login_required
 def index():
-
-
-
-    systems = db.session.query(System.system_id, System.cpu_usage, System.timestamp, System.disk_free).all()
+    systems = session.query(System.system_id, System.os, System.cpu_cores_phys, System.memory_total,System.memory_percent,
+                               System.cpu_freq_max, System.cpu_usage, System.timestamp, System.disk_free).all()
 
 
     return render_template('index.html', title='Home', systems=systems)
-
-
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -79,6 +77,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
+
 @app.route('/user/<username>')
 @login_required
 def user(username):
@@ -88,6 +87,7 @@ def user(username):
         {'author': user, 'body': 'System 2'}
     ]
     return render_template('user.html', user=user, posts=posts)
+
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
@@ -104,6 +104,8 @@ def edit_profile():
         form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
+
+
 @app.route('/cpu', methods=['GET', 'POST'])
 @login_required
 def cpu():
@@ -128,10 +130,10 @@ def cpu():
          text-align: right;
        }
        """
-    session = db.session
+
     systemSelection = request.form.get("system")
 
-    #Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
+    # Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
     if systemSelection is None:
         # Query cpu_usage
         query = session.query(System.cpu_usage).filter_by(system_id='ubuntu').all()
@@ -152,16 +154,25 @@ def cpu():
     for row2 in query2:
         timestamp_list.append(row2)
 
-
     def flatten(listOfLists):
         "Flatten one level of nesting"
         return chain.from_iterable(listOfLists)
+
     # draw the graph
-    figure = pyplot.figure(figsize=(10, 5))
+    figure = pyplot.figure(figsize=(15, 5))
     figure.autofmt_xdate()
     ax = pyplot.axes()
     cpu_list = list(flatten(cpu_list))
     time_list = list(flatten(timestamp_list))
+    hour = []
+    minute = []
+    for time, cpu in zip(time_list, cpu_list):
+        timehour = [
+            "cpu " + str(cpu) + " time " + " " + str(time.hour) + ":" + str(time.minute) + ":" + str(time.second)]
+        hour.append(timehour)
+
+    print(type(hour))
+    labels = hour
     lines = ax.plot(time_list, cpu_list, marker='o', ls='-', ms=5)
     ax.fill_between(time_list, cpu_list)
     ax.set_title(str(systemSelection))
@@ -176,14 +187,10 @@ def cpu():
     for lists in systems:
         system_list.append(*lists._asdict().values())
 
-    labels = cpu_list
-
     tooltip = plugins.PointHTMLTooltip(lines[0], labels,
                                        voffset=10, hoffset=10, css=css)
     plugins.connect(figure, tooltip)
     html_text = mpld3.fig_to_html(figure)
-
-
 
     # make the list contain only distinct items by converting it to a set and back
     uniqueList = list(set(system_list))
@@ -191,9 +198,104 @@ def cpu():
     return render_template('cpu.html', plot=html_text, systems=uniqueList)
 
 
+@app.route('/memory', methods=['GET', 'POST'])
+@login_required
+def memory():
+    css = """
+       table
+       {
+         border-collapse: collapse;
+       }
+       th
+       {
+         color: #ffffff;
+         background-color: #000000;
+       }
+       td
+       {
+         background-color: #cccccc;
+       }
+       table, th, td
+       {
+         font-family:Arial, Helvetica, sans-serif;
+         border: 1px solid black;
+         text-align: right;
+       }
+       """
+    session = db.session
+    systemSelection = request.form.get("system")
+
+    # Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
+    if systemSelection is None:
+        # Query cpu_usage
+        query = session.query(System.memory_percent).filter_by(system_id='ubuntu').all()
+        # query Timestamps
+        query2 = session.query(System.timestamp).filter_by(system_id='ubuntu').all()
+        totalquery = session.query(System.memory_total).filter_by(system_id='ubuntu').first()
+        systemSelection = 'ubuntu'
+    else:
+        query2 = session.query(System.timestamp).filter_by(system_id=systemSelection).all()
+        query = session.query(System.memory_percent).filter_by(system_id=systemSelection).all()
+        totalquery = session.query(System.memory_total).filter_by(system_id=systemSelection).first()
+
+    print(totalquery)
+    cpu_list = []
+    timestamp_list = []
+    # add cpu usage to x
+    for row in query:
+        cpu_list.append(row)
+
+    # add timestamp to y
+    for row2 in query2:
+        timestamp_list.append(row2)
+
+    def flatten(listOfLists):
+        "Flatten one level of nesting"
+        return chain.from_iterable(listOfLists)
+
+    # draw the graph
+    figure = pyplot.figure(figsize=(10, 5))
+    figure.autofmt_xdate()
+    ax = pyplot.axes()
+    cpu_list = list(flatten(cpu_list))
+    time_list = list(flatten(timestamp_list))
+    hour = []
+    minute = []
+    for time, cpu in zip(time_list, cpu_list):
+        timehour = [
+            "memory " + str(cpu) + " time " + " " + str(time.hour) + ":" + str(time.minute) + ":" + str(time.second)]
+        hour.append(timehour)
+
+    labels = hour
+    lines = ax.plot(time_list, cpu_list, marker='o', ls='-', ms=5)
+    ax.fill_between(time_list, cpu_list)
+    ax.set_title(str("Memory usage for " + systemSelection + " total memory: " + str(totalquery[0])))
+    ax.set_xlabel("Hours")
+    ax.set_ylabel("Memory usage %")
+    ax.grid()
+    # query db for all system_id's
+    systems = session.query(System.system_id).all()
+    system_list = []
+    # for loop to add the va
+    # appends values from the db to mylist
+    for lists in systems:
+        system_list.append(*lists._asdict().values())
+
+    tooltip = plugins.PointHTMLTooltip(lines[0], labels,
+                                       voffset=10, hoffset=10, css=css)
+    plugins.connect(figure, tooltip)
+    html_text = mpld3.fig_to_html(figure)
+
+    # make the list contain only distinct items by converting it to a set and back
+    uniqueList = list(set(system_list))
+
+    return render_template('memory.html', plot=html_text, systems=uniqueList)
+
 
 @app.route('/disk', methods=['GET', 'POST'])
+@login_required
 def disk():
+
     session = db.session
     systemSelection = request.form.get("system")
 
@@ -205,9 +307,9 @@ def disk():
 
         systemSelection = 'ubuntu'
     else:
-        query = session.query(System.disk_free).filter_by(system_id='ubuntu').order_by(-System.timestamp).first()
-        query2 = session.query(System.disk_used).filter_by(system_id='ubuntu').order_by(-System.timestamp).first()
-
+        query = session.query(System.disk_free).filter_by(system_id=systemSelection).order_by(-System.timestamp).first()
+        query2 = session.query(System.disk_used).filter_by(system_id=systemSelection).order_by(
+            -System.timestamp).first()
 
     figure = pyplot.figure(figsize=(5, 5))
     labels = 'Free space', 'Used space'
@@ -219,7 +321,7 @@ def disk():
             shadow=True, startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     ax1.legend(labels)
-    system_list= []
+    system_list = []
     systems = session.query(System.system_id).all()
     for lists in systems:
         system_list.append(*lists._asdict().values())
@@ -228,3 +330,6 @@ def disk():
 
     html_text = mpld3.fig_to_html(figure)
     return render_template('disk.html', plot=html_text, systems=uniqueList)
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.html', title = 'About')

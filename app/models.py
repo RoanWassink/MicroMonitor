@@ -1,9 +1,14 @@
 from datetime import datetime
+
+from sqlalchemy import ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
+from sqlalchemy import DateTime
 from app import db, login
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5
-
+Base = declarative_base()
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -35,14 +40,49 @@ def load_user(id):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
+#
+# class newSystem(Base):
+#     __tablename__ = 'systems'
+#     id = db.Column(db.Integer, primary_key=True)
+#     system_name = db.Column(db.String)
+#     os = db.Column(db.String(140))
+#     cpu_cores_phys = db.Column(db.Integer)
+#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+#
+#
+#     def __repr__(self):
+#         return "<newSystem(system_name='%s')>" % (
+#                                      self.system_name)
+# class Systemdata(Base):
+#     __tablename__='systemdatas'
+#     id = db.Column(db.Integer, primary_key=True)
+#     cpu_usage = db.Column(db.Float)
+#     cpu_usage = db.Column(db.Float)
+#     cpu_temp = db.Column(db.Float)
+#     disk_free = db.Column(db.Float)
+#     disk_used = db.Column(db.Float)
+#     disk_percent = db.Column(db.Float)
+#     cpu_freq_max = db.Column(db.Float)
+#     memory_total = db.Column(db.Float)
+#     memory_used = db.Column(db.Float)
+#     memory_percent = db.Column(db.Float)
+#     system_id = db.Column(db.Integer, ForeignKey('systems.id'))
+#     system = relationship("newSystem", back_populates = "systemdatas")
+#     #newSystem.cpu_usage = relationship("CPU_usage", order_by=CPU_usage.id, back_populates="systems")
+#
+# newSystem.cpu_usage= relationship("Systemdata", order_by = Systemdata.id, back_populates = "system")
+
+
+
 
 class System(db.Model):
+
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     system_id = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
@@ -51,26 +91,18 @@ class System(db.Model):
     disk_free= db.Column(db.Float)
     disk_used= db.Column(db.Float)
     disk_percent = db.Column(db.Float)
+    os = db.Column(db.String(140))
+    cpu_cores_phys = db.Column(db.Integer)
+    cpu_freq_max = db.Column(db.Float)
+    memory_total = db.Column(db.Float)
+    memory_used = db.Column(db.Float)
+    memory_percent= db.Column(db.Float)
 
     def __repr__(self):
         return '{}'.format(self.system_id)
 
 
 
-class Systemtest(db.Model):
-    id = db.Column(db.String, primary_key=True)
-    system_id = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    cpu_usage = db.Column(db.Float)
-    def __repr__(self):
-        return '<Systemtest> {}'.format(self.system_id)
 
 
-class CPU(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    cpu_usage = db.Column(db.Float)
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    system_id = db.Column(db.String(140), db.ForeignKey('system.id'))
-    def __repr__(self):
-        return '<CPU> {}'.format(self.cpu_usage)
 

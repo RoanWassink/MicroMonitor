@@ -1,13 +1,13 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block title %}
-{% if title %}{{ title }} - Microblog{% else %}Welcome to Microblog{% endif %}
+{% if title %}{{ title }} - MicroMonitor{% else %}Welcome to MicroMonitor{% endif %}
 {% endblock %}
 
 {% block navbar %}
 
 <nav class="navbar navbar-expand-lg  navbarBGcolor fixed-top">
-    <a class="navbar-brand" href="{{ url_for('index') }}">Microblog</a>
+    <a class="navbar-brand" href="{{ url_for('index') }}">MicroMonitor</a>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav avbar-dark bg-dark">
             <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -19,11 +19,10 @@
                 <ul class="dropdown-menu">
                     <li><a href="{{ url_for('cpu') }}">Monitor CPU usage</a></li>
                     <li><a href="{{ url_for('disk') }}">Monitor disk space</a></li>
-                    <li><a href="{{ url_for('index') }}">FAQs</a></li>
-                    <li><a href="{{ url_for('index') }}">Contact us</a></li>
+                    <li><a href="{{ url_for('memory') }}">Monitor memory</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
                 </ul>
             </li>
-
         </ul>
         <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_anonymous %}
