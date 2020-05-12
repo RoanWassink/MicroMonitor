@@ -247,7 +247,7 @@ def memory():
         query = session.query(System.memory_percent).filter_by(system_id=systemSelection).all()
         totalquery = session.query(System.memory_total).filter_by(system_id=systemSelection).first()
 
-    
+
     cpu_list = []
     timestamp_list = []
     # add cpu usage to x
@@ -306,6 +306,7 @@ def memory():
 def disk():
 
     session = db.session
+    systemSelection = 'ubuntu'
     systemSelection = request.form.get("system")
 
     # Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
@@ -354,7 +355,7 @@ def disk():
     uniqueList = list(set(system_list))
 
     html_text = mpld3.fig_to_html(figure)
-    return render_template('disk.html', plot=html_text, systems=uniqueList)
+    return render_template('disk.html', plot=html_text, systems=uniqueList, systemSelection=systemSelection)
 @app.route('/about', methods=['GET'])
 def about():
     return render_template('about.html', title = 'About')

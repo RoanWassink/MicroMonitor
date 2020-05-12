@@ -6,37 +6,44 @@
 
 {% block navbar %}
 
-<nav class="navbar navbar-expand-lg  navbarBGcolor fixed-top">
-    <a class="navbar-brand" href="{{ url_for('index') }}">MicroMonitor</a>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav avbar-dark bg-dark">
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li class="nav-item oo-roboto-override dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ url_for('index') }}">
-                    Monitoring
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ url_for('cpu') }}">Monitor CPU usage</a></li>
-                    <li><a href="{{ url_for('disk') }}">Monitor disk space</a></li>
-                    <li><a href="{{ url_for('memory') }}">Monitor memory</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}">MicroMonitor</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li class="nav-item oo-roboto-override dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="{{ url_for('index') }}">
+                            Monitoring
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('cpu') }}">Monitor CPU usage</a></li>
+                        <li><a href="{{ url_for('disk') }}">Monitor disk space</a></li>
+                        <li><a href="{{ url_for('memory') }}">Monitor memory</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                    </ul>
+                </li>
                 </ul>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            {% if current_user.is_anonymous %}
-            <li><a href="{{ url_for('login') }}">Login</a></li>
-            {% else %}
-            <li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
-            <li><a href="{{ url_for('logout') }}">Logout</a></li>
-            {% endif %}
-        </ul>
-    </div>
-    </div>
-</nav>
-
-
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_anonymous %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
 {% endblock %}

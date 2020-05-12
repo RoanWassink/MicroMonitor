@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block app_content %}
     <h1>CPU usage:</h1>
 <span class="dropdown-text">Switch server:</span>
         <form name = "system" action = ' 'method ="POST" >
@@ -12,7 +12,15 @@
             </select>
             <input class="btn" type="submit" value="submit">
         </form>
-    {{plot|safe}}
+<div class="d-flex justify-content-between">
+      <div>
+         {{plot|safe}}
+      </div>
+      <div>
+         right
+      </div>
+ </div>
+
 
 
 
