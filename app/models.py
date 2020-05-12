@@ -15,7 +15,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    #posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     def avatar(self, size):
@@ -37,48 +37,16 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    def __repr__(self):
-        return '<Post {}>'.format(self.body)
-
-#
-# class newSystem(Base):
-#     __tablename__ = 'systems'
+# class Post(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
-#     system_name = db.Column(db.String)
-#     os = db.Column(db.String(140))
-#     cpu_cores_phys = db.Column(db.Integer)
-#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-#
+#     body = db.Column(db.String(140))
+#     timestamp = db.Column(db.DateTime, index=True, default=datetime.now())
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 #
 #     def __repr__(self):
-#         return "<newSystem(system_name='%s')>" % (
-#                                      self.system_name)
-# class Systemdata(Base):
-#     __tablename__='systemdatas'
-#     id = db.Column(db.Integer, primary_key=True)
-#     cpu_usage = db.Column(db.Float)
-#     cpu_usage = db.Column(db.Float)
-#     cpu_temp = db.Column(db.Float)
-#     disk_free = db.Column(db.Float)
-#     disk_used = db.Column(db.Float)
-#     disk_percent = db.Column(db.Float)
-#     cpu_freq_max = db.Column(db.Float)
-#     memory_total = db.Column(db.Float)
-#     memory_used = db.Column(db.Float)
-#     memory_percent = db.Column(db.Float)
-#     system_id = db.Column(db.Integer, ForeignKey('systems.id'))
-#     system = relationship("newSystem", back_populates = "systemdatas")
-#     #newSystem.cpu_usage = relationship("CPU_usage", order_by=CPU_usage.id, back_populates="systems")
+#         return '<Post {}>'.format(self.body)
 #
-# newSystem.cpu_usage= relationship("Systemdata", order_by = Systemdata.id, back_populates = "system")
-
-
+#
 
 
 class System(db.Model):

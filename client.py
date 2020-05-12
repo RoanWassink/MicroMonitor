@@ -21,7 +21,7 @@ s=socket.socket()
 sleeptime = 1*30
 
 s=socket.socket()
-s.connect(('192.168.10.11', 5004))
+s.connect(('192.168.10.11', 5002))
 os= platform.system()
 cpu_cores_phys = psutil.cpu_count(logical=False)
 cpu_cores_log = psutil.cpu_count(logical=True)

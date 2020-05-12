@@ -2,6 +2,7 @@ from itertools import chain
 
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
+from sqlalchemy import desc
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
@@ -82,11 +83,19 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'System 1'},
-        {'author': user, 'body': 'System 2'}
-    ]
-    return render_template('user.html', user=user, posts=posts)
+
+    systems = session.query(System.system_id).all()
+
+    system_list = []
+    # for loop to add the va
+    # appends values from the db to mylist
+    for lists in systems:
+        system_list.append(*lists._asdict().values())
+
+    uniqueList = list(set(system_list))
+    system1, system2 = uniqueList
+    print(system1)
+    return render_template('user.html', user=user, systems=uniqueList )
 
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -171,7 +180,7 @@ def cpu():
             "cpu " + str(cpu) + " time " + " " + str(time.hour) + ":" + str(time.minute) + ":" + str(time.second)]
         hour.append(timehour)
 
-    print(type(hour))
+
     labels = hour
     lines = ax.plot(time_list, cpu_list, marker='o', ls='-', ms=5)
     ax.fill_between(time_list, cpu_list)
@@ -238,7 +247,7 @@ def memory():
         query = session.query(System.memory_percent).filter_by(system_id=systemSelection).all()
         totalquery = session.query(System.memory_total).filter_by(system_id=systemSelection).first()
 
-    print(totalquery)
+    
     cpu_list = []
     timestamp_list = []
     # add cpu usage to x
@@ -311,16 +320,32 @@ def disk():
         query2 = session.query(System.disk_used).filter_by(system_id=systemSelection).order_by(
             -System.timestamp).first()
 
+    def get_size(bytes, suffix="B"):
+        """
+        Scale bytes to its proper format
+        e.g:
+            1253656 => '1.20MB'
+            1253656678 => '1.17GB'
+        """
+        factor = 1024
+        for unit in ["", "K", "M", "G", "T", "P"]:
+            if bytes < factor:
+                return f"{bytes:.2f} " + unit
+            bytes /= factor
+
+
     figure = pyplot.figure(figsize=(5, 5))
+    legendlabels = 'Free space ' + str(get_size(query[0])), 'Used space '+ str(get_size(query2[0]))
     labels = 'Free space', 'Used space'
     sizes = [query, query2]
-    explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+    explode = (0, 0.1)  # only "explode" the 2nd slice
 
     ax1 = pyplot.axes()
     ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
             shadow=True, startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-    ax1.legend(labels)
+    ax1.legend(legendlabels)
+    ax1.set_title=systemSelection
     system_list = []
     systems = session.query(System.system_id).all()
     for lists in systems:

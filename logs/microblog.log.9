@@ -1,7 +1,11 @@
-2020-05-06 14:34:06,106 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:47:40,564 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:48:51,218 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:48:53,567 ERROR: Exception on /cpu [POST] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
+2020-05-10 12:47:00,547 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 12:53:28,563 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 12:53:30,474 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 12:53:46,866 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 12:59:57,518 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:00:10,205 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:00:44,875 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:00:45,839 ERROR: Exception on /index [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -17,63 +21,69 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 170, in cpu
-    timehour = [cpu, str(time.hour+ ":"+time.minute)]
-TypeError: unsupported operand type(s) for +: 'int' and 'str'
-2020-05-06 14:49:38,915 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:51:17,691 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:51:35,825 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:54:17,018 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:54:31,092 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:54:55,896 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:55:16,891 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:55:34,943 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-06 14:56:03,893 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:21:12,399 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:21:37,036 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:24:49,703 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:25:02,180 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:25:26,760 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:25:28,940 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:27:26,155 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:27:28,300 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:28:10,439 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:28:12,671 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:30:55,363 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:37:48,320 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:37:54,093 ERROR: Exception on /memory [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 39, in index
+    return render_template('index.html', title='Home', systems=systems)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 277, in memory
-    lines = ax.plot(time_list, cpu_list, marker='o', ls='-', ms=5)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_axes.py", line 1667, in plot
-    self.add_line(line)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_base.py", line 1902, in add_line
-    self._update_line_limits(line)
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/axes/_base.py", line 1924, in _update_line_limits
-    path = line.get_path()
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/lines.py", line 1027, in get_path
-    self.recache()
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/lines.py", line 675, in recache
-    y = _to_unmasked_float_array(yconv).ravel()
-  File "/home/user/.local/lib/python3.7/site-packages/matplotlib/cbook/__init__.py", line 1390, in _to_unmasked_float_array
-    return np.asarray(x, float)
-  File "/home/user/.local/lib/python3.7/site-packages/numpy/core/_asarray.py", line 85, in asarray
-    return array(a, dtype, copy=False, order=order)
-ValueError: could not convert string to float: "'3.01GB'"
-2020-05-08 13:42:51,801 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:47:37,979 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
-2020-05-08 13:51:05,418 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 47, in template
+    {% endblock %}
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2020-05-10 13:01:03,340 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:01:31,367 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:06:37,751 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:11:15,770 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:12:56,899 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:19:32,591 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-10 13:20:40,852 INFO: Microblog startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]

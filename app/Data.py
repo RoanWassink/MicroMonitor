@@ -5,7 +5,7 @@ from app import app, db
 from app.models import System
 session = db.session()
 with socket.socket() as server:
-    server.bind(('192.168.10.11',5004))
+    server.bind(('192.168.10.11',5002))
     server.listen(50)
     to_read = [server]  # add server to list of readable sockets.
     clients = {}
@@ -36,6 +36,7 @@ with socket.socket() as server:
                     print(system_id)
                     p = System(os=os,cpu_usage=cpu_usage, system_id=system_id, disk_percent=disk_percent, disk_free=disk_free,
                                disk_used=disk_used, cpu_cores_phys=cpu_cores_phys, cpu_freq_max=cpu_freq_max, memory_total=memory_total, memory_used=memory_used, memory_percent=memory_percent)
+                    print(cpu_cores_phys)
                     db.session.add(p)
                     db.session.commit()
         print('.',flush=True,end='')

@@ -8,10 +8,9 @@
       <change beforePath="$PROJECT_DIR$/app/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/app/logs/microblog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/cpu.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/cpu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/disk.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/disk.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/_post.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.1" afterDir="false" />
@@ -24,18 +23,7 @@
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/microblog.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/logs/microblog.log.9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/script.py.mako" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/1582640ba8e9_systemtest_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/2f13eff67087_cpu_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/674e34bcf5ca_system_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/84f1e7de53ca_new_systemtable.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/a0e57cc26964_new_fields_in_user_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/a13a8763248e_system_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/e37ef8565626_post_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/ee854076276c_yser_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microblog.py" beforeDir="false" afterPath="$PROJECT_DIR$/microblog.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +52,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Python.Data">
+  <component name="RunManager" selected="Python.client">
     <configuration name="Data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="microblog" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,22 +140,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1827" height="275" key="GridCell.Tab.0.bottom" timestamp="1589108817764">
-      <screen x="70" y="27" width="1850" height="1053" />
+    <state width="1625" height="275" key="GridCell.Tab.0.bottom" timestamp="1589297139241">
+      <screen x="70" y="27" width="1648" height="901" />
     </state>
-    <state width="1827" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1589108817764" />
-    <state width="1827" height="275" key="GridCell.Tab.0.center" timestamp="1589108817764">
-      <screen x="70" y="27" width="1850" height="1053" />
+    <state width="1625" height="275" key="GridCell.Tab.0.bottom/70.27.1648.901@70.27.1648.901" timestamp="1589297139241" />
+    <state width="1827" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1589213701123" />
+    <state width="1625" height="275" key="GridCell.Tab.0.center" timestamp="1589297139240">
+      <screen x="70" y="27" width="1648" height="901" />
     </state>
-    <state width="1827" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1589108817764" />
-    <state width="1827" height="275" key="GridCell.Tab.0.left" timestamp="1589108817763">
-      <screen x="70" y="27" width="1850" height="1053" />
+    <state width="1625" height="275" key="GridCell.Tab.0.center/70.27.1648.901@70.27.1648.901" timestamp="1589297139240" />
+    <state width="1827" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1589213701123" />
+    <state width="1625" height="275" key="GridCell.Tab.0.left" timestamp="1589297139240">
+      <screen x="70" y="27" width="1648" height="901" />
     </state>
-    <state width="1827" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1589108817763" />
-    <state width="1827" height="275" key="GridCell.Tab.0.right" timestamp="1589108817764">
-      <screen x="70" y="27" width="1850" height="1053" />
+    <state width="1625" height="275" key="GridCell.Tab.0.left/70.27.1648.901@70.27.1648.901" timestamp="1589297139240" />
+    <state width="1827" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1589213701122" />
+    <state width="1625" height="275" key="GridCell.Tab.0.right" timestamp="1589297139240">
+      <screen x="70" y="27" width="1648" height="901" />
     </state>
-    <state width="1827" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1589108817764" />
+    <state width="1625" height="275" key="GridCell.Tab.0.right/70.27.1648.901@70.27.1648.901" timestamp="1589297139240" />
+    <state width="1827" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1589213701123" />
     <state width="1827" height="340" key="GridCell.Tab.1.bottom" timestamp="1588681267077">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
@@ -183,6 +176,10 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1827" height="340" key="GridCell.Tab.1.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588681267077" />
+    <state x="484" y="188" key="SettingsEditor" timestamp="1589213132163">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="484" y="188" key="SettingsEditor/70.27.1850.1053@70.27.1850.1053" timestamp="1589213132163" />
     <state x="686" y="165" width="1012" height="777" key="find.popup" timestamp="1588251306307">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
@@ -193,7 +190,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app/routes.py</url>
-          <line>12</line>
+          <line>13</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
