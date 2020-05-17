@@ -5,7 +5,7 @@ from app import app, db
 from app.models import System
 session = db.session()
 with socket.socket() as server:
-    server.bind(('192.168.10.11',5002))
+    server.bind(('192.168.10.11',5003))
     server.listen(50)
     to_read = [server]  # add server to list of readable sockets.
     clients = {}
@@ -21,7 +21,6 @@ with socket.socket() as server:
                 to_read.append(client) # add client to list of readable sockets
             else:
                 # Simplified, really need a message protocol here.
-                # For example, could receive a partial UTF-8 encoded sequence.
                 data = reader.recv(4096)
                 data = data.decode('utf-8')
                 if not data: # No data indicates disconnect

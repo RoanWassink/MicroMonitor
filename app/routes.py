@@ -2,24 +2,16 @@ from itertools import chain
 
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
-from sqlalchemy import desc
+
 from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User, System
 from datetime import datetime, date, time, timedelta
 from app.forms import EditProfileForm
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.backends.backend_svg import FigureCanvasSVG
-# from matplotlib.figure import Figure
 import matplotlib.pyplot as pyplot, mpld3
 from mpld3 import plugins
-import matplotlib.dates as mdates
-import pandas as pd
-import numpy as np
 
-import io
-import base64
 session = db.session
 
 @app.before_request
@@ -144,11 +136,12 @@ def cpu():
 
     # Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
     if systemSelection is None:
+        systemSelection = session.query(System.system_id).first()
         # Query cpu_usage
         query = session.query(System.cpu_usage).filter_by(system_id='ubuntu').all()
         # query Timestamps
         query2 = session.query(System.timestamp).filter_by(system_id='ubuntu').all()
-        systemSelection = 'ubuntu'
+
     else:
         query2 = session.query(System.timestamp).filter_by(system_id=systemSelection).all()
         query = session.query(System.cpu_usage).filter_by(system_id=systemSelection).all()
@@ -174,7 +167,6 @@ def cpu():
     cpu_list = list(flatten(cpu_list))
     time_list = list(flatten(timestamp_list))
     hour = []
-    minute = []
     for time, cpu in zip(time_list, cpu_list):
         timehour = [
             "cpu " + str(cpu) + " time " + " " + str(time.hour) + ":" + str(time.minute) + ":" + str(time.second)]
@@ -236,6 +228,7 @@ def memory():
 
     # Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
     if systemSelection is None:
+
         # Query cpu_usage
         query = session.query(System.memory_percent).filter_by(system_id='ubuntu').all()
         # query Timestamps
@@ -306,11 +299,12 @@ def memory():
 def disk():
 
     session = db.session
-    systemSelection = 'ubuntu'
+    systemSelection = session.query(System.system_id).first()
     systemSelection = request.form.get("system")
 
     # Prevents error when first opening the page. Effectively makes 'ubuntu' the default selection.
     if systemSelection is None:
+
         # Query cpu_usage
         query = session.query(System.disk_free).filter_by(system_id='ubuntu').order_by(-System.timestamp).first()
         query2 = session.query(System.disk_used).filter_by(system_id='ubuntu').order_by(-System.timestamp).first()

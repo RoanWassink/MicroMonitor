@@ -21,7 +21,7 @@ s=socket.socket()
 sleeptime = 1*30
 
 s=socket.socket()
-s.connect(('192.168.10.11', 5002))
+s.connect(('192.168.10.11',5003))
 os= platform.system()
 cpu_cores_phys = psutil.cpu_count(logical=False)
 cpu_cores_log = psutil.cpu_count(logical=True)
@@ -45,7 +45,6 @@ while True:
     disk_used = disk_space.used
     metrics = [system_id, cpu_usage, disk_percent, disk_free, disk_used, os, cpu_cores_phys, cpu_freq_max, memory_total, memory_used, memory_percent]
     data = str(metrics)
-    print(metrics)
     s.send(data.encode())
     time.sleep(sleeptime)
 s.close()

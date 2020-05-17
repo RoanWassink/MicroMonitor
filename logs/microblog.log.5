@@ -1,0 +1,97 @@
+2020-05-12 17:41:50,147 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:46:01,971 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:46:18,642 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:47:36,822 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:49:06,090 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:49:27,681 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:50:03,187 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:52:38,508 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:56:38,795 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:57:06,355 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 17:59:13,134 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:06:47,734 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:07:13,411 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:08:28,444 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:09:38,879 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:10:50,407 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:11:24,425 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:12:49,905 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:14:28,827 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:14:50,592 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:15:14,536 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:16:32,334 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:16:43,067 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:16:57,888 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:17:05,777 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:17:15,163 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:19:28,823 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:19:46,740 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
+2020-05-12 18:19:47,103 ERROR: Exception on /index [GET] [in /home/user/.local/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/user/.local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/user/.local/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/user/Documents/Scripts/microblog/app/routes.py", line 40, in index
+    return render_template('index.html', title='Home', systems=systems)
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/user/.local/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 63, in template
+    {% endblock %}
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/home/user/Documents/Scripts/microblog/app/templates/index.html", line 11, in root
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/user/Documents/Scripts/microblog/app/templates/base.html", line 63, in template
+    {% endblock %}
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 170, in parse_statements
+    self.fail_eof(end_tokens)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 104, in fail_eof
+    return self._fail_ut_eof(None, stack, lineno)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "/home/user/.local/lib/python3.7/site-packages/jinja2/parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2020-05-12 18:21:35,065 INFO: MicroMonitor startup [in /home/user/Documents/Scripts/microblog/app/__init__.py:46]
